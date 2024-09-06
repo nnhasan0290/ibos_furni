@@ -1,9 +1,10 @@
-import Signup from "./pages/signup/Signup";
+import Products from "./pages/Products/Products";
+// import Signup from "./pages/signup/Signup";
 
 function App() {
   return (
     <>
-      <Signup />
+      <Products />
     </>
   );
 }
