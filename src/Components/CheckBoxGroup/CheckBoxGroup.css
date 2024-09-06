@@ -1,0 +1,13 @@
+.furni_checkbox {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.furni_checkbox label {
+  color: #000000;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16.8px;
+}
