@@ -10,7 +10,6 @@ import {
 import Footer from "../../views/Footer";
 import Header from "../../views/Header";
 
-import Chair from "../../assets/chair_1.png";
 import { BiMinus, BiPlus } from "react-icons/bi";
 import { RxCross2 } from "react-icons/rx";
 import CustomButton from "../../Components/CustomButton";
@@ -50,7 +49,11 @@ const CheckOut = () => {
                     >
                       <BiMinus /> 1 <BiPlus />
                     </Flex>
-                    <Image bg="#EAEAEA" width={"88px"} src={Chair} />
+                    <Image
+                      bg="#EAEAEA"
+                      width={"88px"}
+                      src={`${product.image}`}
+                    />
                     <Text alignSelf={"start"} fontWeight={600}>
                       {product.title}
                     </Text>
