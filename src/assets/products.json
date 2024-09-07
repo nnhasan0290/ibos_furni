@@ -3,8 +3,8 @@
     "id": "1",
     "image": "/src/assets/chair_1.png",
     "title": "Recliner Chair Wood",
-    "price": "€299.00",
-    "oldPrice": "€350.00",
+    "price": "299.00",
+    "oldPrice": "350.00",
     "off": "30%",
     "desc": "It has a backrest that can be tilted back, and often a footrest extended"
   },
@@ -12,8 +12,8 @@
     "id": "2",
     "image": "./image 146.png",
     "title": "Timber Ride Padded",
-    "price": "€59.00",
-    "oldPrice": "€75.00",
+    "price": "59.00",
+    "oldPrice": "75.00",
     "off": "30%",
     "desc": "It has a backrest that can be tilted back, and often a footrest extended"
   },
@@ -21,8 +21,8 @@
     "id": "3",
     "image": "./image 147.png",
     "title": "Colored Wooden Chair",
-    "price": "€299.00",
-    "oldPrice": "€350.00",
+    "price": "299.00",
+    "oldPrice": "350.00",
     "off": "30%",
     "desc": "It has a backrest that can be tilted back, and often a footrest extended"
   },
@@ -30,8 +30,8 @@
     "id": "3",
     "image": "./image 147.png",
     "title": "Colored Wooden Chair",
-    "price": "€299.00",
-    "oldPrice": "€350.00",
+    "price": "299.00",
+    "oldPrice": "350.00",
     "off": "30%",
     "desc": "It has a backrest that can be tilted back, and often a footrest extended"
   },
@@ -39,8 +39,8 @@
     "id": "4",
     "image": "./image 148.png",
     "title": "Blank Bamboo Wicker",
-    "price": "€299.00",
-    "oldPrice": "€350.00",
+    "price": "299.00",
+    "oldPrice": "350.00",
     "off": "30%",
     "desc": "It has a backrest that can be tilted back, and often a footrest extended"
   },
@@ -48,8 +48,8 @@
     "id": "5",
     "image": "./image 149.png",
     "title": "Isolated Wooden Rock",
-    "price": "€165.00",
-    "oldPrice": "€350.00",
+    "price": "165.00",
+    "oldPrice": "350.00",
     "off": "30%",
     "desc": "It has a backrest that can be tilted back, and often a footrest extended"
   },
@@ -57,8 +57,8 @@
     "id": "6",
     "image": "./rocking-chair-with-padded-seat 1.png",
     "title": "Minimal Empty Rocking",
-    "price": "€165.00",
-    "oldPrice": "€350.00",
+    "price": "165.00",
+    "oldPrice": "350.00",
     "off": "30%",
     "desc": "It has a backrest that can be tilted back, and often a footrest extended"
   }

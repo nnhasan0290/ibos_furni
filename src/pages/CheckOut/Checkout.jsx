@@ -1,4 +1,12 @@
-import { Divider, Flex, Heading, Image, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Divider,
+  Flex,
+  Heading,
+  Image,
+  Text,
+  useToast,
+} from "@chakra-ui/react";
 import Footer from "../../views/Footer";
 import Header from "../../views/Header";
 
@@ -6,8 +14,14 @@ import Chair from "../../assets/chair_1.png";
 import { BiMinus, BiPlus } from "react-icons/bi";
 import { RxCross2 } from "react-icons/rx";
 import CustomButton from "../../Components/CustomButton";
+import { ContextConsumer } from "../../utils/Context";
 
 const CheckOut = () => {
+  const { state, dispatch } = ContextConsumer();
+  const toast = useToast();
+
+  const subtotal = state.reduce((sum, each) => (sum += Number(each.price)), 0);
+
   return (
     <>
       <Header />
@@ -16,53 +30,51 @@ const CheckOut = () => {
           <Heading size={"md"} pb={3}>
             An Overview of your order
           </Heading>
-          <Flex direction={"column"} bg={"#FAFAFA"} p={3}>
-            <Flex alignItems={"top"} justify={"space-between"} width={"100%"}>
-              <Flex alignItems={"center"} gap={2}>
+          {state.map((product) => (
+            <>
+              <Flex key={product.id} direction={"column"} bg={"#FAFAFA"} p={3}>
                 <Flex
-                  border={"1px solid #DEDEDE"}
-                  fontSize={"20px"}
-                  bg={"white"}
-                  px={1}
-                  align={"center"}
-                  gap={0.5}
-                  cursor={"pointer"}
+                  alignItems={"top"}
+                  justify={"space-between"}
+                  width={"100%"}
                 >
-                  <BiMinus /> 1 <BiPlus />
+                  <Flex alignItems={"center"} gap={2}>
+                    <Flex
+                      border={"1px solid #DEDEDE"}
+                      fontSize={"20px"}
+                      bg={"white"}
+                      px={1}
+                      align={"center"}
+                      gap={0.5}
+                      cursor={"pointer"}
+                    >
+                      <BiMinus /> 1 <BiPlus />
+                    </Flex>
+                    <Image bg="#EAEAEA" width={"88px"} src={Chair} />
+                    <Text alignSelf={"start"} fontWeight={600}>
+                      {product.title}
+                    </Text>
+                  </Flex>
+                  <Box
+                    cursor={"pointer"}
+                    onClick={() => {
+                      dispatch({ type: "REMOVE_FROM_CART", payload: product });
+                      toast({
+                        title: "Product Removed...",
+                        status: "error",
+                        duration: 5000,
+                        isClosable: true,
+                      });
+                    }}
+                  >
+                    <RxCross2 />
+                  </Box>
                 </Flex>
-                <Image bg="#EAEAEA" width={"88px"} src={Chair} />
-                <Text alignSelf={"start"} fontWeight={600}>
-                  Recliner Chair Steel
-                </Text>
+                <Text textAlign={"right"}>€{product.price} </Text>
               </Flex>
-              <RxCross2 />
-            </Flex>
-            <Text textAlign={"right"}>€299.00</Text>
-          </Flex>
-          <Divider />
-          <Flex direction={"column"} bg={"#FAFAFA"} p={3}>
-            <Flex alignItems={"top"} justify={"space-between"} width={"100%"}>
-              <Flex alignItems={"center"} gap={2}>
-                <Flex
-                  border={"1px solid #DEDEDE"}
-                  fontSize={"20px"}
-                  bg={"white"}
-                  px={1}
-                  align={"center"}
-                  gap={0.5}
-                >
-                  <BiMinus /> 1 <BiPlus />
-                </Flex>
-                <Image bg="#EAEAEA" width={"88px"} src={Chair} />
-                <Text alignSelf={"start"} fontWeight={600}>
-                  Recliner Chair Steel
-                </Text>
-              </Flex>
-              <RxCross2 />
-            </Flex>
-            <Text textAlign={"right"}>€299.00</Text>
-          </Flex>
-          <Divider />
+              <Divider />
+            </>
+          ))}
         </Flex>
 
         <Flex direction={"column"} width={"30%"}>
@@ -79,19 +91,19 @@ const CheckOut = () => {
           >
             <Flex justify={"space-between"}>
               <Text>SubTotal</Text>
-              <Text>1071.00</Text>
+              <Text>€{subtotal}</Text>
             </Flex>
             <Flex justify={"space-between"}>
-              <Text>SubTotal</Text>
-              <Text>1071.00</Text>
+              <Text>Shipping</Text>
+              <Text>Free</Text>
             </Flex>
             <Divider />
-            <Flex justify={"space-between"}>
+            <Flex justify={"space-between"} fontWeight={700}>
               <Text>Total</Text>
-              <Text>1071.00</Text>
+              <Text>€{subtotal}</Text>
             </Flex>
           </Flex>
-          <CustomButton />
+          <CustomButton text={"Checkout"} />
         </Flex>
       </Flex>
       <Footer />

@@ -1,8 +1,20 @@
-import { Flex, Heading, Image, Text, Wrap, WrapItem } from "@chakra-ui/react";
+import {
+  Flex,
+  Heading,
+  Image,
+  Text,
+  useToast,
+  Wrap,
+  WrapItem,
+} from "@chakra-ui/react";
 import CustomButton from "../../Components/CustomButton";
 import Products from "../../assets/products.json";
+import Chair from "../../assets/chair_1.png";
+import { ContextConsumer } from "../../utils/Context";
 
 const ProductArea = () => {
+  const { state, dispatch } = ContextConsumer();
+  const toast = useToast();
   return (
     <Wrap px={3} spacing={"30px"} justify={"center"}>
       {Products.map((each, i) => (
@@ -26,16 +38,24 @@ const ProductArea = () => {
             align={"center"}
             justify={"center"}
           >
-            <Image src={import.meta.env.BASE_URL + each.image} />
+            <Image src={Chair} />
           </Flex>
           <Flex alignItems={"start"} flexDirection={"column"} gap={3}>
             <Heading color={"#343434"} fontSize={"18px"}>
               {each.title}
             </Heading>
-            <Flex fontSize={"18px"}>
-              <Text>€299.00</Text>
-              <Text>€299.00</Text>
-              <Text>30% OFF</Text>
+            <Flex fontSize={"18px"} gap={2}>
+              <Text fontWeight={700}>€{each.price}</Text>
+              <Text
+                fontWeight={500}
+                color={"#838383"}
+                textDecoration={"line-through"}
+              >
+                €{each.oldPrice}
+              </Text>
+              <Text fontWeight={700} color={"#B92E2E"}>
+                {each.off} OFF
+              </Text>
             </Flex>
             <Text
               fontSize={"14px"}
@@ -46,7 +66,18 @@ const ProductArea = () => {
               It has a backrest that can be tilted back, and often a footrest
               extended
             </Text>
-            <CustomButton />
+            <CustomButton
+              logo={true}
+              onClick={() => {
+                dispatch({ type: "ADD_TO_CART", payload: each });
+                toast({
+                  title: "Added to Cart Successfully..!",
+                  status: "success",
+                  duration: 9000,
+                  isClosable: true,
+                });
+              }}
+            />
           </Flex>
         </WrapItem>
       ))}
