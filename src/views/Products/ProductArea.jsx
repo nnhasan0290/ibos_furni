@@ -8,7 +8,7 @@ import {
   WrapItem,
 } from "@chakra-ui/react";
 import CustomButton from "../../Components/CustomButton";
-import Products from "../../assets/products.json";
+import Products from "../../products.json";
 import { ContextConsumer } from "../../utils/Context";
 
 const ProductArea = () => {
@@ -37,7 +37,7 @@ const ProductArea = () => {
             align={"center"}
             justify={"center"}
           >
-            <Image src={import.meta.env.BASE_URL + each.image} />
+            <Image src={each.image} />
           </Flex>
           <Flex alignItems={"start"} flexDirection={"column"} gap={3}>
             <Heading color={"#343434"} fontSize={"18px"}>
