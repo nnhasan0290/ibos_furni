@@ -19,7 +19,7 @@
   },
   {
     "id": "3",
-    "image": "image 147.png",
+    "image": "/images/image 147.png",
     "title": "Colored Wooden Chair",
     "price": "299.00",
     "oldPrice": "350.00",
@@ -28,7 +28,7 @@
   },
   {
     "id": "3",
-    "image": "image 147.png",
+    "image": "/images/image 147.png",
     "title": "Colored Wooden Chair",
     "price": "299.00",
     "oldPrice": "350.00",
@@ -37,7 +37,7 @@
   },
   {
     "id": "4",
-    "image": "image 148.png",
+    "image": "/images/image 148.png",
     "title": "Blank Bamboo Wicker",
     "price": "299.00",
     "oldPrice": "350.00",
@@ -46,7 +46,7 @@
   },
   {
     "id": "5",
-    "image": "image 149.png",
+    "image": "/images/image 149.png",
     "title": "Isolated Wooden Rock",
     "price": "165.00",
     "oldPrice": "350.00",
@@ -55,7 +55,7 @@
   },
   {
     "id": "6",
-    "image": "rocking-chair-with-padded-seat 1.png",
+    "image": "/images/rocking-chair-with-padded-seat 1.png",
     "title": "Minimal Empty Rocking",
     "price": "165.00",
     "oldPrice": "350.00",
