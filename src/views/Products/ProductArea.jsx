@@ -37,7 +37,7 @@ const ProductArea = () => {
             align={"center"}
             justify={"center"}
           >
-            <Image src={each.image} />
+            <Image src={`${each.image}`} />
           </Flex>
           <Flex alignItems={"start"} flexDirection={"column"} gap={3}>
             <Heading color={"#343434"} fontSize={"18px"}>
