@@ -9,11 +9,10 @@ import {
 } from "@chakra-ui/react";
 import CustomButton from "../../Components/CustomButton";
 import Products from "../../assets/products.json";
-import Chair from "../../assets/chair_1.png";
 import { ContextConsumer } from "../../utils/Context";
 
 const ProductArea = () => {
-  const { state, dispatch } = ContextConsumer();
+  const { dispatch } = ContextConsumer();
   const toast = useToast();
   return (
     <Wrap px={3} spacing={"30px"} justify={"center"}>
@@ -38,7 +37,7 @@ const ProductArea = () => {
             align={"center"}
             justify={"center"}
           >
-            <Image src={Chair} />
+            <Image src={import.meta.env.BASE_URL + each.image} />
           </Flex>
           <Flex alignItems={"start"} flexDirection={"column"} gap={3}>
             <Heading color={"#343434"} fontSize={"18px"}>
