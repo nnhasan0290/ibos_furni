@@ -6,7 +6,6 @@ import {
   Flex,
   Heading,
   Link as LLink,
-  SimpleGrid,
   Text,
   useToast,
 } from "@chakra-ui/react";
@@ -15,12 +14,12 @@ import InputGroup from "../Components/InputGroup/InputGroup";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
 import CustomButton from "../Components/CustomButton";
+import { useState } from "react";
 
-const SignUpLeft = () => {
-  const toast = useToast();
+const LoginLeft = () => {
   const navigate = useNavigate();
+  const toast = useToast();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -37,15 +36,30 @@ const SignUpLeft = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    localStorage.setItem("user", JSON.stringify(formData));
-    toast({
-      title: "Account Created Successfully..",
-      status: "success",
-      duration: 6000,
-      isClosable: true,
-    });
-    navigate("/products");
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (
+      user &&
+      user.email === formData.email &&
+      user.password === formData.password
+    ) {
+      toast({
+        title: "Login Successfully..",
+        status: "success",
+        duration: 6000,
+        isClosable: true,
+      });
+      navigate("/products");
+    } else {
+      toast({
+        title: "Account not Found..",
+        status: "warning",
+        duration: 6000,
+        isClosable: true,
+      });
+    }
   };
+
   return (
     <Flex
       w={"50%"}
@@ -79,16 +93,6 @@ const SignUpLeft = () => {
                 Signup for purchase your desire products
               </Text>
             </Box>
-            <SimpleGrid columns={2} spacing={3}>
-              <InputGroup
-                label="First Name"
-                placeholder={"Enter your First Name"}
-              />
-              <InputGroup
-                label="Last Name"
-                placeholder={"Enter your Last Name"}
-              />
-            </SimpleGrid>
 
             <InputGroup
               label="Email Address"
@@ -107,7 +111,7 @@ const SignUpLeft = () => {
               onChange={handleInputChange}
             />
             <CheckBoxGroup />
-            <CustomButton type={"submit"} text={"Sign Up"} />
+            <CustomButton type="Submit" text="Sign In" />
 
             <Box position="relative" fontSize={"14px"} padding="2">
               <Divider />
@@ -138,7 +142,7 @@ const SignUpLeft = () => {
               </Button>
             </Flex>
             <Text fontSize={14}>
-              Have an account?
+              Don't have an account?
               <LLink
                 fontWeight={500}
                 textDecoration={"none"}
@@ -146,7 +150,7 @@ const SignUpLeft = () => {
                 href="#"
                 pl={2}
               >
-                <Link to="/">Sign In</Link>
+                <Link to="signup">Sign Up</Link>
               </LLink>
             </Text>
           </Flex>
@@ -156,4 +160,4 @@ const SignUpLeft = () => {
   );
 };
 
-export default SignUpLeft;
+export default LoginLeft;

@@ -1,7 +1,7 @@
 import { Flex } from "@chakra-ui/react";
 import { BiShoppingBag } from "react-icons/bi";
 
-const CustomButton = () => {
+const CustomButton = ({ text, logo, type }) => {
   return (
     // Button from facebook.com
     <Flex
@@ -15,6 +15,7 @@ const CustomButton = () => {
       transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
       border="1px"
       px="8px"
+      type={type}
       borderRadius="5px"
       fontSize="14px"
       fontWeight="semibold"
@@ -32,8 +33,9 @@ const CustomButton = () => {
           "0 0 1px 2px rgba(88, 144, 255, .75), 0 1px 1px rgba(0, 0, 0, .15)",
       }}
     >
-      <BiShoppingBag />
-      Add to Cart
+      {logo ? <BiShoppingBag /> : ""}
+
+      {text ? text : "Add to Cart"}
     </Flex>
   );
 };

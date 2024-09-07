@@ -1,9 +1,15 @@
 import "./InputGroup.css";
-const InputGroup = () => {
+const InputGroup = ({ label, placeholder, type, name, onChange }) => {
   return (
     <div className="input_group">
-      <label htmlFor="">first name</label>
-      <input placeholder="Enter your first name" />
+      <label htmlFor="">{label ? label : "label"}</label>
+      <input
+        type={type}
+        name={name}
+        onChange={onChange}
+        required
+        placeholder={placeholder ? placeholder : "Enter"}
+      />
     </div>
   );
 };
